@@ -6,7 +6,7 @@
           Nuxt PWA News
         </h1>
         <h2 class="subtitle">
-          Search worldwide news and Get breaking news headlines!
+           Worldwide news and get breaking news headlines!
         </h2>
       </div>
     </section>
