@@ -4,17 +4,17 @@
       <div class="columns is-multiline">
         <div
           class="column is-one-quarter"
-          v-for="(article, index) in articles"
+          v-for="(latestNews, index) in news"
           :key="index">
-          <a :href="article.url" target="_blank">
+          <a :href="latestNews.url" target="_blank">
             <div class="card">
               <div class="card-image">
                 <figure class="image is-3by2">
-                  <img :src="article.urlToImage" :alt="article.title">
+                  <img :src="latestNews.image" :alt="latestNews.title">
                 </figure>
               </div>
               <div class="card-content">
-                <div class="content title is-6">{{ article.title }}</div>
+                <div class="content title is-6">{{ latestNews.title }}</div>
               </div>
             </div>
           </a>
@@ -27,10 +27,10 @@
 <script lang="js">
 export default {
   async asyncData ({ app }) {
-    const { articles } = await app.$axios.$get(
-        `https://newsapi.org/v2/top-headlines?sources=cnn&apiKey=${process.env.NEWS_API_KEY}`
+    const { news } = await app.$axios.$get(
+        `https://api.currentsapi.services/v1/latest-news?apiKey=${process.env.NEWS_API_KEY}`
     );
-    return { articles };
+    return { news };
   },
 }
 </script>
@@ -60,5 +60,13 @@ export default {
 }
 .links {
   padding-top: 15px;
+}
+
+img {
+  width: 100%;
+}
+
+.card {
+  height: 100%;
 }
 </style>
