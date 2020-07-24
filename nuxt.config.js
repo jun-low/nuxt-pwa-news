@@ -1,4 +1,14 @@
+// only add `router.base = '/<repository-name>/'` if `DEPLOY_ENV` is `GH_PAGES`
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+    router: {
+      base: '/nuxt-pwa-news/'
+    }
+  } : {}
+
 export default {
+    router: {
+        ...routerBase
+      },
     /*
      ** Nuxt rendering mode
      ** See https://nuxtjs.org/api/configuration-mode
