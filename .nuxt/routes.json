@@ -3,7 +3,6 @@
     "name": "index",
     "path": "/",
     "component": "/Users/jun/Documents/GitHub/nuxt-pwa-news/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_874efd52"
+    "chunkName": "pages/index"
   }
 ]
