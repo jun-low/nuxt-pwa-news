@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="hero has-text-centered is-medium is-primary is-bold">
+    <section class="hero has-text-centered is-medium is-dark is-bold">
       <div class="hero-body">
         <h1 class="title">
           Nuxt PWA News
@@ -24,7 +24,7 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
-html {
+body {
   font-family: 'Roboto Mono', monospace;
 }
 </style>
