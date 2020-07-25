@@ -21,7 +21,7 @@ export default {
             { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
         ],
         link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+            { rel: 'icon', type: 'image/x-icon', href: '/icon.png' }
         ]
     },
     /*
@@ -76,6 +76,7 @@ export default {
             short_name: 'Nuxt.js PWA',
             lang: 'en',
             display: 'standalone',
+            start_url: "/"
         },
         /*
         ** Handle external assets
@@ -114,6 +115,14 @@ export default {
             config: {
             productionTip: false,
             devtools: true
+            }
+        },
+        static: {
+            maxAge: "1y",
+            setHeaders(res, path) {
+                if (path.includes("sw.js")) {
+                res.setHeader("Cache-Control", `public, max-age=${15 * 60}`);
+                }
             }
         }
     }
