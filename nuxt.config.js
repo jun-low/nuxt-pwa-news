@@ -25,6 +25,10 @@ export default {
         ]
     },
     /*
+    ** Customize the progress-bar color
+    */
+    loading: { color: '#fff' },
+    /*
      ** Global CSS
      */
     css: [],
@@ -41,9 +45,7 @@ export default {
     /*
      ** Nuxt.js dev-modules
      */
-    buildModules: [
-        '@nuxtjs/pwa'
-    ],
+    buildModules: [],
     /*
      ** Nuxt.js modules
      */
@@ -52,6 +54,7 @@ export default {
         '@nuxtjs/bulma',
         '@nuxtjs/axios',
         '@nuxtjs/dotenv',
+        '@nuxtjs/pwa'
     ],
     /*
      ** Build configuration
@@ -65,5 +68,53 @@ export default {
                 }
             }
         },
+        /*
+        ** Overwrite's generated manifest values
+        */
+        manifest: {
+            name: 'Nuxt.js PWA news',
+            short_name: 'Nuxt.js PWA',
+            lang: 'en',
+            display: 'standalone',
+        },
+        /*
+        ** Handle external assets
+        */
+        workbox: {
+            runtimeCaching: [
+            {
+                urlPattern: 'https://fonts.googleapis.com/.*',
+                handler: 'cacheFirst',
+                method: 'GET',
+                strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+            },
+            {
+                urlPattern: 'https://fonts.gstatic.com/.*',
+                handler: 'cacheFirst',
+                method: 'GET',
+                strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+            },
+            {
+                urlPattern: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/x.y.z/css/bulma.css',
+                method: 'GET',
+                strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+            },
+            {
+                urlPattern: 'https://unpkg.com/axios/dist/axios.min.js',
+                handler: 'cacheFirst',
+                method: 'GET',
+                strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+            }
+            ]
+        },
+        /*
+        ** Allow dev tools in production
+        */
+        vue: {
+            config: {
+            productionTip: false,
+            devtools: true
+            }
+        }
     }
 }
