@@ -1,8 +1,0 @@
-[
-  {
-    "name": "index",
-    "path": "/",
-    "component": "/Users/jun/Documents/GitHub/nuxt-pwa-news/pages/index.vue",
-    "chunkName": "pages/index"
-  }
-]
