@@ -1,6 +1,6 @@
 # nuxt-pwa-news
 
-[!screenshot](./screenshot.png)
+![screenshot](./screenshot.png)
 ## Build Setup
 
 ```bash
